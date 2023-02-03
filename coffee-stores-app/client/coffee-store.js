@@ -22,7 +22,7 @@ const getCoffeeStorePhotos = async () => {
     query: "coffee shop",
     perPage: 30,
   })
-  const photos = unsplashResult.response.results || []
+  const photos = unsplashResult?.response?.results || []
   return photos.map((result) => result.urls["small"])
 }
 
