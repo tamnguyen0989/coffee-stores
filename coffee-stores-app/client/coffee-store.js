@@ -1,4 +1,4 @@
-import httpService from "../../lib/http-service"
+import httpService from "../lib/http-service"
 import { createApi } from "unsplash-js"
 
 // on your node server

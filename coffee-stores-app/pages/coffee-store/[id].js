@@ -5,7 +5,7 @@ import { useRouter } from "next/router"
 import useSWR from "swr"
 import cls from "classnames"
 import styles from "../../styles/coffee-store.module.css"
-import { createCoffeeStoreFE, getCoffeeStoresFE, favouriteCoffeeStoreByIdFE } from "../client/coffee-store"
+import { createCoffeeStoreFE, getCoffeeStoresFE, favouriteCoffeeStoreByIdFE } from "../../client/coffee-store"
 import { useContext, useEffect, useState } from "react"
 import { StoreContext } from "../../store/store-context"
 import { fetcher, isEmpty } from "../../utils"
@@ -71,12 +71,14 @@ const CoffeeStore = (initialProps) => {
     else handleCreateCoffeeStore(initialProps.coffeeStore)
   }, [id, initialProps, initialProps.coffeeStore])
 
-  const { 
-    name = "",
-    address = "",
-    neighborhood = "",
-    imgUrl = ""
-  } = coffeeStore
+  let name = "", address="", neighborhood = "", imgUrl = ""
+  if(coffeeStore){
+    name= coffeeStore.name
+    address= coffeeStore.address
+    neighborhood= coffeeStore.neighborhood
+    imgUrl= coffeeStore.imgUrl
+  }
+  
 
   const { data, error } = useSWR(`/api/getCoffeeStoreById?id=${id}`, fetcher)
 

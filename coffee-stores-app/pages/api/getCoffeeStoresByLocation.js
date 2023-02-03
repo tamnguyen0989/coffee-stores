@@ -1,4 +1,4 @@
-import { getCoffeeStoresFE } from "../client/coffee-store"
+import { getCoffeeStoresFE } from "../../client/coffee-store"
 
 const getCoffeeStoresByLocation = async (req, res) => {
   try {
