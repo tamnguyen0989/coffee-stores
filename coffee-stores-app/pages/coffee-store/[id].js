@@ -84,6 +84,7 @@ const CoffeeStore = (initialProps) => {
 
   useEffect(() => {
     if(data){
+      console.log('...data SWR', data);
       setCoffeeStore(data)
       setVotingCount(data.voting)
     }
